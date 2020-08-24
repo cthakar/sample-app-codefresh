@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app
+  namespace: chintan-poc
+spec:
+  selector:
+    matchLabels:
+      app: python-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: python-app
+        app: python-app
+    spec:
+      containers:
+      - name: python-app
+        image: docker.io/cthakar/codefresh-demo:debug-1212
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+      imagePullSecrets:
+        - name: chintan-repo 

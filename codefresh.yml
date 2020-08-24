@@ -36,5 +36,6 @@ steps:
     kind: kubernetes 
     cluster: test-cd-tools@crux-ci-dev
     namespace: chintan-poc
-    service: python-svc
+    #service: python-svc
+    file_path: ./deployment.yml
   
