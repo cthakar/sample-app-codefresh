@@ -31,3 +31,21 @@ steps:
      image: '${{build_my_image}}'
      commands:
        - python -m unittest composeexample.utils     
+
+  DeployToMyCluster:
+    title: deploying to cluster
+    type: deploy
+    stage: deploy
+    kind: kubernetes  
+    ## cluster name as the shown in account's integration page
+    cluster:  test-cd-tools
+    # desired namespace
+    namespace: chintan-poc
+    service: python-svc
+    candidate:
+      # The image that will replace the original deployment image 
+      # The image that been build using Build step
+      image: cthakar/codefresh-demo:debug-${{RANDOM}}
+      # The registry that the user's Kubernetes cluster can pull the image from
+      # Codefresh will generate (if not found) secret and add it to the deployment so the Kubernetes master can pull it
+      registry: ${{REGISTRY_NAME}}
