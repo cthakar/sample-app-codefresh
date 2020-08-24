@@ -36,7 +36,7 @@ steps:
     fail_fast: false
     commands:
       - ls -altr
-      - ls -altr /codefresh/volume/test-project
+    # - ls -altr /codefresh/volume/test-project
       - cat Dockerfile
       - cat .gitignore
     # - cp deployment.yml /codefresh/volume/deployment.yml
@@ -47,5 +47,5 @@ steps:
     cluster: test-cd-tools@crux-ci-dev
     namespace: chintan-poc
     #service: python-svc
-    file_path: ./deployment.yml
+    file_path: deployment.yml
   
