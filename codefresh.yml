@@ -22,8 +22,6 @@ steps:
     #tag: 'debug-${{CF_SHORT_REVISION}}'
     tag: 'debug-${{RANDOM}}'
     dockerfile: Dockerfile
-    build_arguments:
-      - --no-cache
     no_cache: true
     no_cf_cache: true
   test_my_image:
@@ -42,7 +40,7 @@ steps:
     cluster: test-cd-tools@crux-ci-dev
     # desired namespace
     namespace: chintan-poc
-    service: python-app
+    service: python-svc
     candidate:
       # The image that will replace the original deployment image 
       # The image that been build using Build step
