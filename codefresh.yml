@@ -30,6 +30,13 @@ steps:
      image: '${{build_my_image}}'
      commands:
        - python -m unittest composeexample.utils     
+  freestyle_step:
+    image: ${{build_my_image}}
+    working_directory: ${{main_clone}}
+    fail_fast: false
+    commands:
+      - cp ./deployment.yml /codefresh/volume/deployment.yml
+      - cp ./Dockerfile /codefresh/volume/Dockerfile
   deploy_to_k8:
     title: deploying to cluster
     type: deploy
