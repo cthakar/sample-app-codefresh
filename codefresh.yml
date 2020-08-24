@@ -35,8 +35,10 @@ steps:
     working_directory: ${{main_clone}}
     fail_fast: false
     commands:
-      - cp deployment.yml /codefresh/volume/deployment.yml
-      - cp Dockerfile /codefresh/volume/Dockerfile
+      - ls -altr
+      - ls -altr /codefresh/volume/
+      - ls -altr /codefresh
+    # - cp deployment.yml /codefresh/volume/deployment.yml
   deploy_to_k8:
     title: deploying to cluster
     type: deploy
