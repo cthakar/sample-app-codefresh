@@ -1,0 +1,33 @@
+version: '1.0'
+stages:
+ - prepare
+ - build
+ - test
+steps:
+  main_clone:
+    title: Cloning main repository...
+    stage: prepare
+    type: git-clone
+    repo: 'codefreshdemo/cf-example-python-django'
+    revision: master
+    git: github
+  build_my_image:
+    title: Building Docker Image
+    stage: build
+    type: build
+    image_name: cthakar/codefresh-demo
+    registry: ${{REGISTRY_NAME}}
+    working_directory: ./
+    #tag: 'debug-${{CF_SHORT_REVISION}}'
+    tag: 'debug-${{RANDOM}}'
+    dockerfile: Dockerfile
+    build_arguments:
+      - --no-cache
+    no_cache: true
+    no_cf_cache: true
+  test_my_image:
+     title: Running unit tests
+     stage: test
+     image: '${{build_my_image}}'
+     commands:
+       - python -m unittest composeexample.utils     
