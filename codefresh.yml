@@ -3,6 +3,7 @@ stages:
  - prepare
  - build
  - test
+ - deploy
 steps:
   main_clone:
     title: Cloning main repository...
@@ -38,7 +39,7 @@ steps:
     stage: deploy
     kind: kubernetes  
     ## cluster name as the shown in account's integration page
-    cluster:  test-cd-tools
+    cluster: test-cd-tools@crux-ci-dev
     # desired namespace
     namespace: chintan-poc
     service: python-svc
