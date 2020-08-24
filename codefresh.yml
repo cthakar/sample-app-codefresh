@@ -36,8 +36,8 @@ steps:
     fail_fast: false
     commands:
       - ls -altr
-      - ls -altr /codefresh/volume/
-      - ls -altr /codefresh
+      - ls -altr /codefresh/volume/sample-app-codefresh
+      - cat Dockerfile
     # - cp deployment.yml /codefresh/volume/deployment.yml
   deploy_to_k8:
     title: deploying to cluster
