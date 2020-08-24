@@ -36,16 +36,16 @@ steps:
     fail_fast: false
     commands:
       - ls -altr
-    # - ls -altr /codefresh/volume/test-project
+      - ls -altr /codefresh/volume/
       - cat Dockerfile
       - cat .gitignore
     # - cp deployment.yml /codefresh/volume/deployment.yml
-  deploy_to_k8:
-    title: deploying to cluster
-    type: deploy
-    kind: kubernetes 
-    cluster: test-cd-tools@crux-ci-dev
-    namespace: chintan-poc
+    #  deploy_to_k8:
+    #title: deploying to cluster
+    #type: deploy
+    #kind: kubernetes 
+    #cluster: test-cd-tools@crux-ci-dev
+    #namespace: chintan-poc
     #service: python-svc
-    file_path: deployment.yml
+    #file_path: deployment.yml
   
