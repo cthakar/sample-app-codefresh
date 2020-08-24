@@ -42,7 +42,7 @@ steps:
     cluster: test-cd-tools@crux-ci-dev
     # desired namespace
     namespace: chintan-poc
-    service: python-svc
+    service: python-app
     candidate:
       # The image that will replace the original deployment image 
       # The image that been build using Build step
